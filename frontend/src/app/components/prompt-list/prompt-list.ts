@@ -32,11 +32,21 @@ export class PromptListComponent implements OnInit {
 
   constructor(private service: PromptService) {}
 
-  ngOnInit(): void {
-    this.loadPrompts();
-    this.loadTrending();
-  }
+  ngOnInit() {
+  this.service.getPrompts().subscribe({
+    next: (res: any) => {
+      console.log('API:', res);
 
+      // 🔥 SAFE PARSE
+      this.prompts = Array.isArray(res) ? res : [];
+
+    },
+    error: (err) => {
+      console.error('ERROR:', err);
+      this.prompts = [];
+    }
+  });
+}
   // LOAD ALL
   loadPrompts() {
   this.service.getPrompts().subscribe({

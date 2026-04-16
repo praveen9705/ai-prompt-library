@@ -12,9 +12,8 @@ export class PromptService {
 
   // GET ALL
   getPrompts() {
-    return this.http.get<any[]>(this.apiUrl);
-  }
-
+  return this.http.get<any[]>('https://ai-prompt-backend-8x87.onrender.com/prompts/');
+}
   // GET ONE
   getPrompt(id: number) {
     return this.http.get<any>(`${this.apiUrl}${id}/`);

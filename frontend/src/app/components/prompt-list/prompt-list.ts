@@ -39,19 +39,16 @@ export class PromptListComponent implements OnInit {
 
   // LOAD ALL
   loadPrompts() {
-    this.loading = true;
-
-    this.service.getPrompts().subscribe({
-      next: (data: any[]) => {
-        this.prompts = data;
-        this.loading = false;
-      },
-      error: () => {
-        this.error = 'Failed to load prompts';
-        this.loading = false;
-      }
-    });
-  }
+  this.service.getPrompts().subscribe({
+    next: (res) => {
+      console.log('API DATA:', res);   // 👈 STEP 5 (THIS LINE)
+      this.prompts = res;
+    },
+    error: (err) => {
+      console.error('API ERROR:', err); // 👈 ALSO ADD THIS
+    }
+  });
+}
 
   // LOAD TRENDING
   loadTrending() {

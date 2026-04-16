@@ -1,0 +1,16 @@
+<h2 *ngIf="loading">Loading...</h2>
+
+<div *ngIf="error">{{ error }}</div>
+
+<div *ngIf="prompt">
+  <h2>{{ prompt.title }}</h2>
+
+  <p>{{ prompt.content }}</p>
+
+  <p>Complexity: {{ prompt.complexity }}</p>
+
+  <p style="color: red;">🔥 Views: {{ prompt.view_count }}</p>
+
+  <br>
+  <a routerLink="/">⬅ Back</a>
+</div>

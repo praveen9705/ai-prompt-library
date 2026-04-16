@@ -1,0 +1,38 @@
+<!-- 🔥 ADD PROMPT MODAL -->
+<div class="modal-backdrop">
+
+  <div class="modal">
+
+    <!-- HEADER -->
+    <div class="modal-header">
+      <h2>Add Prompt</h2>
+      <button class="close-btn" (click)="closeAddModal()">✕</button>
+    </div>
+
+    <!-- FORM -->
+    <div class="modal-body">
+
+      <input
+        type="text"
+        placeholder="Enter title..."
+        [(ngModel)]="newPrompt.title"
+        class="input"
+      />
+
+      <textarea
+        placeholder="Write your prompt..."
+        [(ngModel)]="newPrompt.content"
+        class="textarea"
+      ></textarea>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="modal-footer">
+      <button class="cancel-btn" (click)="closeAddModal()">Cancel</button>
+      <button class="submit-btn" (click)="addPrompt()">Submit</button>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,116 @@
+<div class="app">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>🔥 Explore</h1>
+  </div>
+
+  <!-- LOADING -->
+  <div class="grid" *ngIf="loading">
+    <div class="card skeleton" *ngFor="let i of [1,2,3,4,5,6]"></div>
+  </div>
+
+  <!-- ERROR -->
+  <div class="center" *ngIf="error">
+    <p>{{ error }}</p>
+  </div>
+
+  <!-- 🔥 TRENDING -->
+  <div *ngIf="trending.length > 0" class="section">
+
+    <h2 class="section-title">🔥 Trending</h2>
+
+    <div class="grid trending-grid">
+      <div 
+        class="card trending-card"
+        *ngFor="let prompt of trending"
+        (click)="openPrompt(prompt)"
+      >
+        <span class="badge">🔥 Hot</span>
+
+        <div class="overlay">
+          <h3>{{ prompt.title }}</h3>
+          <p>{{ prompt.content | slice:0:80 }}...</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ALL PROMPTS -->
+  <div class="section" *ngIf="!loading && !error">
+
+    <h2 class="section-title">✨ All Prompts</h2>
+
+    <div class="grid">
+
+      <div 
+        class="card"
+        *ngFor="let prompt of prompts"
+        (click)="openPrompt(prompt)"
+      >
+        <div class="overlay">
+          <h3>{{ prompt.title }}</h3>
+          <p>{{ prompt.content | slice:0:80 }}...</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- VIEW MODAL -->
+<div class="modal" *ngIf="selectedPrompt" (click)="closeModal()">
+  <div class="modal-box" (click)="$event.stopPropagation()">
+
+    <h2>{{ selectedPrompt.title }}</h2>
+
+    <p class="content">
+      {{ selectedPrompt.content }}
+    </p>
+
+    <div class="meta">
+      👁 {{ selectedPrompt.view_count }}
+    </div>
+
+    <button class="close-btn" (click)="closeModal()">
+      Close
+    </button>
+
+  </div>
+</div>
+
+
+<!-- ADD MODAL -->
+<div class="modal" *ngIf="showAddModal" (click)="closeAddModal()">
+  <div class="modal-box" (click)="$event.stopPropagation()">
+
+    <h2>Add Prompt</h2>
+
+    <input 
+      type="text"
+      placeholder="Enter title"
+      [(ngModel)]="newPrompt.title"
+    />
+
+    <textarea 
+      placeholder="Enter content"
+      [(ngModel)]="newPrompt.content"
+    ></textarea>
+
+    <div style="display:flex; gap:10px;">
+      <button class="close-btn" (click)="closeAddModal()">Cancel</button>
+      <button class="submit-btn" (click)="addPrompt()">Submit</button>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- FAB -->
+<div class="fab" (click)="openAddModal()">
+  +
+</div>

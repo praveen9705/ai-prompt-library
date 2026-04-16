@@ -1,0 +1,173 @@
+.app {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #141414, #0b0b0b);
+  min-height: 100vh;
+  color: white;
+  padding: 30px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+/* SECTION */
+.section {
+  max-width: 1100px;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* CARD */
+.card {
+  height: 190px;
+  border-radius: 18px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* TRENDING */
+.trending-card {
+  border: 1px solid rgba(255,80,80,0.4);
+}
+
+/* BADGE */
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(255,80,80,0.2);
+  color: #ff6b6b;
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  padding: 16px;
+  width: 100%;
+
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.overlay h3 {
+  font-size: 16px;
+}
+
+.overlay p {
+  font-size: 13px;
+  color: #bbb;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  width: 380px;
+  padding: 20px;
+  border-radius: 14px;
+  background: #1a1a1a;
+}
+
+.content {
+  color: #bbb;
+}
+
+.meta {
+  color: #888;
+}
+
+/* INPUT */
+input, textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #222;
+  color: white;
+}
+
+/* BUTTONS */
+.close-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.submit-btn {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* FAB */
+.fab {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* SKELETON */
+.skeleton {
+  background: linear-gradient(90deg, #1a1a1a, #2a2a2a, #1a1a1a);
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% }
+  100% { background-position: -200% }
+}

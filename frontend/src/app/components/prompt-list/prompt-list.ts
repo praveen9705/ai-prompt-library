@@ -11,7 +11,7 @@ import { PromptService } from '../../services/prompt.service';
   styleUrls: ['./prompt-list.css']
 })
 export class PromptListComponent implements OnInit {
-
+showAdd: boolean = false;
   // DATA
   prompts: any[] = [];
   trending: any[] = [];
